@@ -70,11 +70,10 @@ export default {
    */
   setAutoLogAppEventsEnabled(enabled: boolean) {
     if (!isBoolean(enabled)) {
-       throw new Error("setAutoLogAppEventsEnabled expected 'enabled' to be a boolean");
+      throw new Error("setAutoLogAppEventsEnabled expected 'enabled' to be a boolean");
     }
     Settings.setAutoLogAppEventsEnabled(enabled);
-      return Promise.resolve(true);
-    },
+  },
   /**
    * Set the AdvertiserIDCollectionEnabled
    *
@@ -82,9 +81,7 @@ export default {
   setAdvertiserIDCollectionEnabled(enabled: boolean) {
     if (!isBoolean(enabled)) {
       throw new Error("setAdvertiserIDCollectionEnabled expected 'enabled' to be a boolean");
-   }
-   Settings.setAdvertiserIDCollectionEnabled(enabled);
-      return Promise.resolve(true);
     }
-
+    Settings.setAdvertiserIDCollectionEnabled(enabled);
+  },
 };
