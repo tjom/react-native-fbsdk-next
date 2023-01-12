@@ -114,7 +114,7 @@
     "metro-react-native-babel-preset": "^0.71.0",
     "prettier": "^2.6.2",
     "react": "18.1.0",
-    "react-native": "^0.68.2",
+    "react-native": "^0.70.0",
     "react-native-builder-bob": "^0.18.2",
     "react-test-renderer": "18.1.0",
     "semantic-release": "^19.0.2",
