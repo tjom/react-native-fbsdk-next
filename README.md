@@ -295,7 +295,7 @@ Settings.initializeSDK();
 If you would like to initialize the Facebook SDK even earlier in startup for iOS, you need to include this code in your AppDelegate.m file now that auto-initialization is removed.
 
 ```objective-c
-#import <FBSDKCoreKit/FBSDKCoreKit.h> // <- Add This Import
+#import <FBSDKCoreKit/FBSDKCoreKit-swift.h> // <- Add This Import
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -647,7 +647,7 @@ The DeepLink URL from the re-engagement ads should be passed to the AEM Kit even
 
 // apply codes below to `application:openURL:options:` 
 // in `AppDelegate.m` or `SceneDelegate.m`
-[FBAEMReporter configureWithNetworker:nil appID:@"{app-id}" reporter nil]; // Replace {app-id} with your Facebook App id
+[FBAEMReporter configureWithNetworker:nil appID:@"{app-id}" reporter:nil]; // Replace {app-id} with your Facebook App id
 [FBAEMReporter enable];
 [FBAEMReporter handleURL:url];
 ```
@@ -724,15 +724,23 @@ After installing this npm package, add the [config plugin](https://docs.expo.io/
 }
 ```
 
+Unless you are managing your own native code, the config plugin must be configured per the following "API" section.
+         
 Next, rebuild your app as described in the ["Adding custom native code"](https://docs.expo.io/workflow/customizing/) guide.
 
 ### API
 
 The plugin provides props for extra customization. Every time you change the props or plugins, you'll need to rebuild (and `prebuild`) the native app. If no extra properties are added, defaults will be used.
 
+Required configuration:
+         
 - `appID` (_string_): Facebook Application ID.
 - `displayName` (_string_): Application Name.
 - `clientToken` (_string_): Client Token.
+- `scheme` (_string_): The scheme to use for returning to the app from Facebook. Of the form `fb[app-id]`.
+
+Optional configuration:
+
 - `iosUserTrackingPermission` (_string_): iOS User Tracking Permission.
 - `advertiserIDCollectionEnabled` (_boolean_): Enable advertiser ID collection. Default `false`.
 - `autoLogAppEventsEnabled` (_boolean_): Default `false`.
@@ -752,6 +760,7 @@ The plugin provides props for extra customization. Every time you change the pro
           "appID": "48127127xxxxxxxx",
           "clientToken": "c5078631e4065b60d7544a95xxxxxxxx",
           "displayName": "RN SDK Demo",
+          "scheme": "fb48127127xxxxxxxx",
           "advertiserIDCollectionEnabled": false,
           "autoLogAppEventsEnabled": false,
           "isAutoInitEnabled": true,
