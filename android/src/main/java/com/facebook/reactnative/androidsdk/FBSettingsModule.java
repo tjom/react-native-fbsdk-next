@@ -63,6 +63,17 @@ public class FBSettingsModule extends BaseJavaModule {
     public static void setAppID(String appID) {
         FacebookSdk.setApplicationId(appID);
     }
+
+    @ReactMethod
+    public static void setAppName(String displayName) {
+        FacebookSdk.setApplicationName(displayName);
+    }
+
+    @ReactMethod
+    public static void setGraphAPIVersion(String version) {
+        FacebookSdk.setGraphApiVersion(version);
+    }
+
     /**
      * Set Logging For The user
      * @param enabled enabled
@@ -71,6 +82,7 @@ public class FBSettingsModule extends BaseJavaModule {
     public static void setAutoLogAppEventsEnabled(Boolean enabled) {
         FacebookSdk.setAutoLogAppEventsEnabled(enabled);
     }
+
     /**
      * Set The Collection enabling for idfa,adid
      * @param enabled enabled
@@ -79,5 +91,4 @@ public class FBSettingsModule extends BaseJavaModule {
     public static void setAdvertiserIDCollectionEnabled(Boolean enabled) {
         FacebookSdk.setAdvertiserIDCollectionEnabled(enabled);
     }
-
 }
